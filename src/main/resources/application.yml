@@ -1,8 +1,10 @@
 server:
   port: 8080
   servlet:
-    context-path: /score-crawler
+    context-path: /yibinu-score-crawler
 spring:
+  jmx:
+    default-domain: yibinu-score-crawler
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
