@@ -1,6 +1,7 @@
 package wiki.zimo.scorecrawler.domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Student {
@@ -122,8 +123,16 @@ public class Student {
         for (Score s :scores){
             this.qdxf += s.getXf();
             this.pjjd += s.getJd();
+            String xq = s.getXq();
+            String[] split = xq.split("-");
+            int a = Integer.parseInt(nj);
+            int b = Integer.parseInt(split[0]);
+            int c = Integer.parseInt(split[2]);
+            int xqSort = (b - a) * 2 + c;
+            s.setXqSort(xqSort);
         }
         this.pjjd /= scores.size();
+        this.pjjd = (double) Math.round(this.pjjd * 100) / 100;// 四舍五入保留两位小数
         this.scores = scores;
     }
 
