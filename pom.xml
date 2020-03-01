@@ -5,6 +5,7 @@
     <groupId>wiki.zimo</groupId>
     <artifactId>score-crawler</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>score-crawler</name>
     <description>score-crawler project for Spring Boot</description>
 
