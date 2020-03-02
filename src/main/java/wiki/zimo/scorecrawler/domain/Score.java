@@ -1,13 +1,13 @@
 package wiki.zimo.scorecrawler.domain;
 
-public class Score {
+public class Score implements Comparable<Score>{
     String xq;// 学期
     int xqSort;// 学期排序
     String kcmc;// 课程名称
     String kclb;// 课程类别
     String xdzk;// 修读状况
     double xf;// 学分
-    double cj;// 成绩
+    int cj;// 成绩
     double jd;// 绩点
 
     public int getXqSort() {
@@ -58,11 +58,11 @@ public class Score {
         this.xf = xf;
     }
 
-    public double getCj() {
+    public int getCj() {
         return cj;
     }
 
-    public void setCj(double cj) {
+    public void setCj(int cj) {
         this.cj = cj;
     }
 
@@ -85,5 +85,13 @@ public class Score {
                 ", 成绩=" + cj +
                 ", 绩点=" + jd +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Score o) {
+        if (this.xqSort == o.xqSort) {
+            return this.kcmc.compareTo(o.kclb);
+        }
+        return this.xqSort - o.xqSort;
     }
 }

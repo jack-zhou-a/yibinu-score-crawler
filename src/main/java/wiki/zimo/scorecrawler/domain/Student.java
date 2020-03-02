@@ -1,10 +1,11 @@
 package wiki.zimo.scorecrawler.domain;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.Collections;
 import java.util.List;
 
 public class Student {
+
     String xh;// 学号
     String xm;// 姓名
     String bj;// 班级
@@ -120,7 +121,7 @@ public class Student {
     }
 
     public void setScores(List<Score> scores) {
-        for (Score s :scores){
+        for (Score s : scores) {
             this.qdxf += s.getXf();
             this.pjjd += s.getJd();
             String xq = s.getXq();
@@ -133,6 +134,7 @@ public class Student {
         }
         this.pjjd /= scores.size();
         this.pjjd = (double) Math.round(this.pjjd * 100) / 100;// 四舍五入保留两位小数
+        Collections.sort(scores);
         this.scores = scores;
     }
 

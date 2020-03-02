@@ -116,7 +116,7 @@ public class CrawlerServiceImpl implements CrawlerService {
             score.setKclb(obj.getString("KCLBDM_DISPLAY"));
             score.setXdzk(obj.getString("CXCKDM_DISPLAY"));
             score.setXf(obj.getDouble("XF"));
-            score.setCj(obj.getDouble("ZCJ"));
+            score.setCj(obj.getInteger("ZCJ"));
             score.setJd(obj.getDouble("XFJD"));
             scores.add(score);
         }
