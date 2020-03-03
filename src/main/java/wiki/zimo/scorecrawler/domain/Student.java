@@ -122,8 +122,12 @@ public class Student {
 
     public void setScores(List<Score> scores) {
         for (Score s : scores) {
-            this.qdxf += s.getXf();
-            this.pjjd += s.getJd();
+
+            if (s.getCj() >= 60) { // 成绩大于等于60才能获取到学分和绩点
+                this.qdxf += s.getXf();
+                this.pjjd += s.getJd();
+            }
+
             String xq = s.getXq();
             String[] split = xq.split("-");
             int a = Integer.parseInt(nj);

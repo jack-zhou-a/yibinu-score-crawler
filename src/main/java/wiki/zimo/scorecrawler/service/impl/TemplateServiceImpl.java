@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class TemplateServiceImpl implements TemplateService {
     @Override
-    public XWPFTemplate renderWordTemplate(Student student) throws IOException {
+    public synchronized XWPFTemplate renderWordTemplate(Student student) throws IOException {
         File templateFile = ResourceUtils.getFile("classpath:template.docx");
 //        System.out.println(templateFile.getAbsolutePath());
 
