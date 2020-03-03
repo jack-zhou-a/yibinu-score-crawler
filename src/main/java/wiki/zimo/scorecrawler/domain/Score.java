@@ -1,6 +1,6 @@
 package wiki.zimo.scorecrawler.domain;
 
-public class Score implements Comparable<Score>{
+public class Score implements Comparable<Score> {
     String xq;// 学期
     int xqSort;// 学期排序
     String kcmc;// 课程名称

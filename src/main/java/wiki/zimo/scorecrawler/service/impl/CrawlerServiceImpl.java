@@ -38,7 +38,7 @@ public class CrawlerServiceImpl implements CrawlerService {
     public static String USER_AGENT_VALUE = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36";
 
     @Override
-    public Student score(Student user) throws IOException {
+    public Student getStudentWithScore(Student user) throws IOException {
 
         // 获取登陆页
         Connection con = Jsoup.connect(LOGIN_API).followRedirects(true);
@@ -145,7 +145,7 @@ public class CrawlerServiceImpl implements CrawlerService {
         user.setXz(studentJson.getString("XZ"));
         user.setScores(scores);
 
-        System.out.println(user);
+//        System.out.println(user);
 
         return user;
     }
