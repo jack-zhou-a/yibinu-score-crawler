@@ -8,6 +8,8 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  thymeleaf:
+    cache: false
 # 登陆页同时也是登陆接口
 LOGIN_API: http://authserver.yibinu.edu.cn/authserver/login?service=http%3A%2F%2Fehall.yibinu.edu.cn%2Flogin%3Fservice%3Dhttp%3A%2F%2Fehall.yibinu.edu.cn%2Fnew%2Findex.html
 # 成绩查询之前的角色选择接口

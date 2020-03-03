@@ -1,5 +1,6 @@
 package wiki.zimo.scorecrawler.controller;
 
+import com.alibaba.fastjson.JSONException;
 import com.deepoove.poi.XWPFTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +11,12 @@ import wiki.zimo.scorecrawler.service.CrawlerService;
 import wiki.zimo.scorecrawler.service.TemplateService;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 
@@ -26,8 +30,15 @@ public class ApiController {
     private TemplateService templateService;
 
     @RequestMapping("/getScoreReport")
-    public void getScoreReport(@RequestParam("xh") String xh, @RequestParam("pwd") String pwd, HttpServletResponse response) {
+    public void getScoreReport(@RequestParam("xh") String xh, @RequestParam("pwd") String pwd, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        if (xh.equals(session.getAttribute("xh"))) {
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().write("<script>alert('已下载成绩单，请检查文件目录');window.location.href='" + request.getContextPath() + "';</script>");
+            return;
+        }
         try {
+            session.setAttribute("xh", xh);
             Student student = crawlerService.getStudentWithScore(new Student(xh, pwd));
             XWPFTemplate template = templateService.renderWordTemplate(student);
             String filePath = System.getProperty("user.dir") + File.separator + System.currentTimeMillis() + ".docx";
@@ -59,7 +70,13 @@ public class ApiController {
             tempFile.delete();
         } catch (Exception e) {
             e.printStackTrace();
-
+            session.removeAttribute("xh");
+            response.setContentType("text/html;charset=utf-8");
+            if (e instanceof JSONException) {
+                response.getWriter().write("<script>alert('用户名或密码错误');window.location.href='" + request.getContextPath() + "';</script>");
+                return;
+            }
+            response.getWriter().write("<script>alert('系统异常，请联系站长（461009747）');window.location.href='" + request.getContextPath() + "';</script>");
         }
     }
 }
