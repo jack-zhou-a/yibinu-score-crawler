@@ -12,7 +12,8 @@
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200303155344196.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NzM3OTM0,size_16,color_FFFFFF,t_70)
 2. 输入学号和密码
 3. 点击下载成绩单按钮
-4. 效果图![点击这里输入图片描述](https://img-blog.csdnimg.cn/20200303163257622.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NzM3OTM0,size_16,color_FFFFFF,t_70)
+4. 成绩单效果图
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200303165120231.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2NzM3OTM0,size_16,color_FFFFFF,t_70)
 
 ### 致计算机相关专业的同学或者对爬虫源码感兴趣的同学
 1. 本系统开源，[源码地址](https://github.com/ZimoLoveShuang/yibinu-score-crawler.git)
