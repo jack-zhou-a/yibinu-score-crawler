@@ -26,10 +26,10 @@
 
 <div class="page-container">
     <h1>成绩单</h1>
-    <form th:action="${#servletContext.contextPath}+'/api/getScoreReport'" method="post">
-        <input type="text" name="xh" class="username" placeholder="学号" required>
-        <input type="password" name="pwd" class="password" placeholder="密码" required>
-        <button type="submit">下载成绩单</button>
+    <form id="messageForm" th:action="${#servletContext.contextPath}+'/api/getScoreReport'" method="post">
+        <input type="text" name="xh" class="username" placeholder="学号">
+        <input type="password" name="pwd" class="password" placeholder="密码">
+        <button id="submit_btn" type="submit">下载成绩单</button>
         <div class="error"><span>+</span></div>
     </form>
 </div>
