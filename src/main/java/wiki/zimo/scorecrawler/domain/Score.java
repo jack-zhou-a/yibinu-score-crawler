@@ -90,7 +90,10 @@ public class Score implements Comparable<Score> {
     @Override
     public int compareTo(Score o) {
         if (this.xqSort == o.xqSort) {
-            return this.kcmc.compareTo(o.kclb);
+            if (this.kclb.equals(o.kclb)) {
+                return this.kcmc.compareTo(o.kcmc);
+            }
+            return this.kclb.compareTo(o.kclb);
         }
         return this.xqSort - o.xqSort;
     }
